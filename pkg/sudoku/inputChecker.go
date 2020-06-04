@@ -1,4 +1,4 @@
-package main
+package sudoku
 
 func makeInput(board[9][9] int, fila int, columna int, number int) [9][9]int{
 	if number>0 && number<=9{

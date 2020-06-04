@@ -1,15 +1,15 @@
-package main
+package sudoku
 
 import (
     "math/rand"
 	"time"
 	"fmt"
 )
-func main(){
+func SudokuGenerator()[9][9]int{
 	board:=[9][9]int{}
 	sudoku:=sudokuMaker(board)
 	hidden:=hideNumbers(sudoku)
-	printBoard(hidden)
+	return hidden
 }
 
 func randomInteger(min, max int) int {
@@ -64,7 +64,7 @@ func sudokuMaker(board[9][9]int)[9][9]int{
 				superTrue:=verifyAllInputBooleans(row, col, quadrant)
 				if superTrue==true{
 					sudoku=makeInput(sudoku, x, y, number)
-					fmt.Println(sudoku)
+					/*fmt.Println(sudoku)*/
 					break
 				}
 				if superTrue==false{
@@ -90,24 +90,3 @@ func hideNumbers(sudoku[9][9]int)[9][9]int{
 	return sudoku
 }
 
-func printBoard(sudoku [9][9]int) {
-	fmt.Println("·-------·-------·-------·")
-	for row := 0; row < 9; row++ {
-		fmt.Print("| ")
-		for col := 0; col < 9; col++ {
-			if col == 3 || col == 6 {
-				fmt.Print("| ")
-			}
-			fmt.Printf("%d ", sudoku[row][col])
-			if col == 8 {
-				fmt.Print("|")
-			}
-		}
-		if row == 2 || row == 5 || row == 8 {
-			fmt.Println("\n·-------·-------·-------·")
-		} 
-		if row != 2 && row != 5 && row != 8 {
-			fmt.Println()
-		}
-	}
-}

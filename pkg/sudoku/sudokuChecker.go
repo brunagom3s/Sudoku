@@ -1,4 +1,4 @@
-package main
+package sudoku
 
 func verifyAllRows(board [9][9]int)bool{
 	for x:=0; x<9; x++ {
